@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial";
+}
+
+body {
+    background: #F0F5F8;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    padding: 35px 0;
+    margin: 0 auto;
+}
+
+.left-sidebar {
+    width: 285px;
+    text-align: center;
+}
+
+.main {
+    width: calc(100% - 305px);
+    min-height: 700px;
+}
+
+.footer {
+    width: calc(100% - 305px);
+    margin: auto 0 auto auto;
+}
+
+.hotel-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.hotel-info-pic {
+    width: 215px;
+    height: 180px;
+    border: 1px solid grey
+}
+
+.hotel-info-content {
+    width: calc(100% - 235px);
+}
+
+.hotel-room-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.hotel-room-item-left {
+    width: calc(100% - 165px);
+    padding-right: 20px;
+}
+
+.hotel-room-item-right {
+    width: 165px;
+    text-align: center;
+}
+
+.hotel-room-bronbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 14px;
+    height: 35px;
+    background-color: rgb(0,53,169);
+    color: #fff;
+    cursor: pointer;
+    transition: .2s background-color, .2s box-shadow;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.hotel-room-bronbtn:hover {
+    transition: .2s background-color, .2s box-shadow;
+    background-color: rgb(255,138,0);
+    box-shadow: 0 2px 5px 0 rgba(0, 53, 169, .35);
+}
+
+.hotel-room-bronbtn:active {
+    background-color: rgb(255,138,0);
+}
+
+.hotel-room-fullprice {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(189,189,189);
+    padding-bottom: 2px;
+}
+
+.hotel-room-price {
+    font-size: 20px;
+    color: rgb(255,41,41);
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.hotel-room-nights {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.hotel-room-dates {
+    color: rgb(0,53,169);
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.hotel-room-title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 10px;
+}
+
+.hotel-room-flight {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(129,129,129)
+}
+
+.hotel-room-text {
+    padding-bottom: 10px;
+}
+
+.main-logo {
+    display: block;
+    max-width: 200px;
+    height: 60px;
+    margin: 0 auto 35px auto;
+}
+
+.manager-phone {
+    text-decoration: none;
+    font-size: 19px;
+    line-height: 24px;
+}
+.manager-email {
+    text-decoration: none;
+    font-size: 19px;
+    line-height: 24px;
+}
+
+.manager-text {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.aks-manager-btn {
+    border: 2px solid rgb(0,53,169);
+    color: rgb(0,53,169);
+    border-radius: 3px;
+    padding: 15px 0;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: bold;
+}
+
+.hotel-content-h {
+    font-size: 19px;
+    line-height: 24px;
+    color: rgb(0,53,169);
+    padding-bottom: 10px;
+}
+
+.hotel-content-text {
+    font-size: 16px;
+    line-height: 20px;
+    color: rgb(46,46,46);
+}
+
+.hotel-content-link {
+    display: inline-block;
+    padding-top: 10px;
+    color: rgb(0,53,169);
+    text-decoration: underline;
+}
+
+.footer {
+    display: flex;
+    padding-top: 30px;
+}
+
+.footer-1 {
+    width: 410px;
+    padding-right: 20px;
+}
+.footer-2 {
+    width: 200px;
+    padding-right: 10px;
+}
+.footer-3 {
+    width: calc(100% - 610px);
+}
+
+.footer-text {
+    font-size: 15px;
+    line-height: 20px;
+    color: rgb(46, 46, 46);
+    padding: 2px 0;
+}
+
+.footer-1-top {
+    padding-bottom: 20px;
+}
+
+.hotel-el {
+    padding: 20px;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,53,169,.25);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,53,169,.25);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,53,169,.25);
+}
+
+.grey-text {
+    color: rgb(51,51,51);
+}
+
+.dark-grey-text {
+    color: rgb(51,51,51);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+.margin-bottom-25 {
+    margin-bottom: 25px;
+}
+.margin-bottom-30 {
+    margin-bottom: 30px;
+}
+.margin-bottom-35 {
+    margin-bottom: 35px;
+}
+.margin-bottom-40 {
+    margin-bottom: 35px;
+}
+
+.bold-text {
+    font-weight: bold;
+}
