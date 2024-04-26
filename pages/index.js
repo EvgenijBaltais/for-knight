@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Logo from '/public/images/logo-maot.svg'
+import Smalllogo from '/public/images/small-logo.png'
 
 export default function Index (props){
 
@@ -23,24 +24,113 @@ export default function Index (props){
                 </Head>
                 <div className = "wrapper">
                     <div className = "left-sidebar">
-                        <Image className="main-logo" src={Logo} alt="Компания Магазин отдыха" />
-
-                        <p className="manager-text grey-text margin-bottom-10">Ваш персональный менеджер:</p>
-                        <p className="manager-name dark-grey-text margin-bottom-10">Денис Воробьев</p>
-                        <p className="margin-bottom-10">
-                            <a href = "+79999999999" className="manager-phone grey-text">+7 999 999-99-99</a>
-                        </p>
-                        <p className="margin-bottom-40">
-                            <a href = "mailto:denismailox@mail.ru" className="manager-email grey-text">denismailox@mail.ru</a>
-                        </p>
-                        <div className="aks-manager-btn">
-                            Задать вопрос менеджеру
+                        <div className = "menu-nav">
+                            <div className="open-close"></div>
+                            <Image className="main-logo" src={Logo} alt="Компания Магазин отдыха" />
+                            <p className="manager-text grey-text margin-bottom-10">Ваш персональный менеджер:</p>
+                            <p className="manager-name dark-grey-text margin-bottom-10">Денис Воробьев</p>
+                            <p className="margin-bottom-10">
+                                <a href = "+79999999999" className="manager-phone grey-text">+7 999 999-99-99</a>
+                            </p>
+                            <p className="margin-bottom-40">
+                                <a href = "mailto:denismailox@mail.ru" className="manager-email grey-text">denismailox@mail.ru</a>
+                            </p>
+                            <div className="aks-manager-btn">
+                                Задать вопрос менеджеру
+                            </div>
                         </div>
+                    </div>
+                    <div className = "menu-mobile">
+                        <Image className="main-logo-small" src={Smalllogo} alt="Компания Магазин отдыха" />
                     </div>
                     <main className = "main">
                         <div className = "hotel-item">
                             <div className="hotel-info hotel-el">
-                                <div className="hotel-info-pic"></div>
+                                <div className="hotel-info-pic">
+                                    <div className = "hotel-arrow-left"></div>
+                                    <div className = "hotel-arrow-right"></div>
+                                    <div className = "hotel-arrow-increase"></div>
+                                </div>
+                                <div className="hotel-info-content">
+                                    <h2 className="hotel-content-h">Les Art Resort</h2>
+                                    <p className="hotel-content-text">
+                                        Отель «LES Art Resort» 4* расположен в экологически чистой лесной зоне западного Подмосковья. 
+                                        Загородный отдых со SPA комплексом, тремя бассейнами, ресторанами и развлечениями на территории
+                                         в 20 гектаров будет не только развлекательным, но и полезным
+                                    </p>
+                                    <a className="hotel-content-link">Полное описание</a>
+                                </div>
+                            </div>
+
+                            <div className="hotel-room-item hotel-el">
+                                <div className="room-selected">
+
+                                    <p className = "room-selected-choose">Вы выбрали</p>
+                                    <p className = "room-selected-dates">26 июля (Пт) - 03 авг (Сб)</p>
+
+                                    <p className = "room-selected-title">Стандарт 2-комнатный</p>
+                                    <p className = "room-selected-text">2-комнатный полулюкс. Номер рассчитан на 4-местное размещение</p>
+                                    <p className = "room-selected-flight">Без перелета</p>
+                                    <hr className = "room-selected-hr" />
+                                    <p className = "room-selected-nights">за 8 ночей</p>
+                                    <p className = "room-selected-price">135 000 ₽</p>
+                                    <p className = "room-selected-call">Менеджер свяжется с вами в ближайшее время</p>
+                                </div>
+                            </div>
+
+                            <div className="hotel-room-item hotel-el">
+                                <div className="room-offer">
+                                    <div className="hotel-room-item-left">
+                                        <p className="hotel-room-dates">26 июля (ПТ) - 03 августа (Сб)</p>
+                                        <p className="hotel-room-title">Стандарт 2-комнатный</p>
+                                        <p className="hotel-room-text">2-комнатный полулюкс. Номер рассчитан на 4-местное размещение</p>
+                                        <p className="hotel-room-flight">Без перелета</p>
+                                    </div>
+                                    <div className="hotel-room-item-right">
+                                        <div className="hotel-room-fullprice"><del>138 500 ₽</del></div>
+                                        <div className="hotel-room-price">105 000 ₽</div>
+                                        <div className="hotel-room-nights">за 8 ночей</div>
+                                        <div className="hotel-room-bronbtn">Зафиксировать цену</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="hotel-room-item hotel-el">
+                                <div className="hotel-room-item-left">
+                                    <p className="hotel-room-dates">26 июля (ПТ) - 03 августа (Сб)</p>
+                                    <p className="hotel-room-title">Стандарт 2-комнатный</p>
+                                    <p className="hotel-room-text">2-комнатный полулюкс. Номер рассчитан на 4-местное размещение</p>
+                                    <p className="hotel-room-flight">Без перелета</p>
+                                </div>
+                                <div className="hotel-room-item-right">
+                                    <div className="hotel-room-fullprice"><del>138 500 ₽</del></div>
+                                    <div className="hotel-room-price">105 000 ₽</div>
+                                    <div className="hotel-room-nights">за 8 ночей</div>
+                                    <div className="hotel-room-bronbtn">Зафиксировать цену</div>
+                                </div>
+                            </div>
+                            <div className="hotel-room-item hotel-el">
+                                <div className="hotel-room-item-left">
+                                    <p className="hotel-room-dates">26 июля (ПТ) - 03 августа (Сб)</p>
+                                    <p className="hotel-room-title">Стандарт 2-комнатный</p>
+                                    <p className="hotel-room-text">2-комнатный полулюкс. Номер рассчитан на 4-местное размещение</p>
+                                    <p className="hotel-room-flight">Без перелета</p>
+                                </div>
+                                <div className="hotel-room-item-right">
+                                    <div className="hotel-room-fullprice"><del>138 500 ₽</del></div>
+                                    <div className="hotel-room-price">105 000 ₽</div>
+                                    <div className="hotel-room-nights">за 8 ночей</div>
+                                    <div className="hotel-room-bronbtn">Зафиксировать цену</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className = "between-blocks"></div>
+                        <div className = "hotel-item">
+                            <div className="hotel-info hotel-el">
+                                <div className="hotel-info-pic">
+                                    <div className = "hotel-arrow-left"></div>
+                                    <div className = "hotel-arrow-right"></div>
+                                    <div className = "hotel-arrow-increase"></div>
+                                </div>
                                 <div className="hotel-info-content">
                                     <h2 className="hotel-content-h">Les Art Resort</h2>
                                     <p className="hotel-content-text">
