@@ -334,12 +334,25 @@ body {
 }
 
 .aks-manager-btn {
+    text-align: center;
     border: 2px solid rgb(0,53,169);
     color: rgb(0,53,169);
     border-radius: 3px;
     padding: 15px 0;
     font-size: 18px;
     line-height: 18px;
+    font-weight: bold;
+}
+
+.aks-manager-btn-m {
+    width: 250px;
+    text-align: center;
+    border: 2px solid rgb(0,53,169);
+    color: rgb(0,53,169);
+    border-radius: 3px;
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 14px;
     font-weight: bold;
 }
 
@@ -458,8 +471,37 @@ body {
 
     .menu-mobile {
         width: 100%;
-        display: block;
+        display: flex;
+        align-items: center;
         margin-bottom: 25px;
+    }
+
+    .mobile-manager-name-info {
+        color: rgb(46, 46, 46);
+    }
+
+    .mobile-manager-name {
+        font-weight: bold;
+        color: rgb(46, 46, 46);
+    }
+
+    .menu-pic {
+        width: 40px;
+        height: 60px;
+        margin: auto 0 auto 0;
+        background-image: url('/images/icons/menu-mob.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .menu-mobile-text {
+        width: calc(100% - 460px);
+        padding-left: 25px;
+        padding-right: 20px;
+    }
+
+    .aks-manager-btn-m {
+        margin-right: 100px;
     }
 
     .wrapper {
@@ -517,6 +559,59 @@ body {
     }
 }
 
+@media only screen and (max-width: 850px) {
+
+    .footer-1 {
+        width: 280px;
+    }
+    .footer-3 {
+        width: calc(100% - 490px);
+    }
+}
+
+@media only screen and (max-width: 850px) {
+
+    .aks-manager-btn-m {
+        margin-right: 50px;
+    }
+    .menu-mobile-text {
+        width: calc(100% - 410px);
+    }
+}
+
 @media only screen and (max-width: 700px) {
 
+    .aks-manager-btn-m {
+        display: none;
+    }
+    .menu-mobile-text {
+        width: calc(100% - 110px);
+    }
+
+    .footer {
+        flex-wrap: wrap;
+    }
+    .footer-1,
+    .footer-2 {
+        margin-bottom: 20px;
+    }
+    .footer-1,
+    .footer-2,
+    .footer-3 {
+        width: 100%;
+    }
+    .hotel-el {
+        flex-wrap: wrap;
+    }
+    .hotel-info-pic {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .hotel-info-content {
+        width: 100%;
+    }
+
+    .hotel-info {
+        margin-bottom: 20px;
+    }
 }
