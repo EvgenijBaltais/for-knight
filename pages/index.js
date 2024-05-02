@@ -43,8 +43,8 @@ export default function Index (props){
                     <div className = "menu-mobile">
                         <Image className="main-logo-small" src={Smalllogo} alt="Компания Магазин отдыха" />
                         <div className="menu-mobile-text">
-                            <p class = "mobile-manager-name-info">Ваш персональный менеджер:</p>
-                            <p class = "mobile-manager-name">Денис Воробьев</p>
+                            <p className = "mobile-manager-name-info">Ваш персональный менеджер:</p>
+                            <p className = "mobile-manager-name">Денис Воробьев</p>
                         </div>
                         <div className="aks-manager-btn-m">
                             Задать вопрос менеджеру
