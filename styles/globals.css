@@ -91,7 +91,7 @@ body {
     overflow: hidden;
 }
 
-.hotel-arrow-left {
+.swiper-button-prev {
     width: 25px;
     height: 25px;
     position: absolute;
@@ -104,9 +104,48 @@ body {
     background-size: 35px;
     background-position: center;
     cursor: pointer;
+    z-index: 3;
 }
 
-.hotel-arrow-right {
+.swiper-pics {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-pics .swiper-slide {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+}
+
+.swiper-pics .swiper-pagination {
+    position: absolute;
+    width: calc(100% - 20px) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    bottom: 5px !important;
+    left: 10px !important;
+    right: 10px !important;
+    margin: auto;
+    min-height: 20px;
+    z-index: 5;
+}
+
+.swiper-pics .pagination-bullet {
+    display: inline-flex;
+    width: 5px;
+    height: 5px;
+    margin: 2px;
+    background-color: #d2dfe5;
+    border-radius: 100%;
+}
+
+.swiper-pics .swiper-pagination-bullet-active {
+    background-color: #fff;
+}
+
+.swiper-button-next {
     width: 25px;
     height: 25px;
     position: absolute;
@@ -119,6 +158,7 @@ body {
     background-size: 35px;
     background-position: center;
     cursor: pointer;
+    z-index: 3;
 }
 
 .hotel-arrow-increase {
@@ -131,6 +171,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
+    z-index: 3;
 }
 
 .hotel-info-content {
@@ -467,7 +508,19 @@ body {
     display: none;
 }
 
+.scroll-locked {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 @media only screen and (max-width: 1250px) {
+
+    .room-selected {
+        padding: 25px 0 50px 0;
+    }
 
     .menu-mobile {
         width: 100%;
@@ -486,12 +539,17 @@ body {
     }
 
     .menu-pic {
-        width: 40px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         margin: auto 0 auto 0;
         background-image: url('/images/icons/menu-mob.svg');
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
+        z-index: 4;
+    }
+
+    .menu-pic.active {
+        background-image: url('/images/icons/orange-cross.svg');
     }
 
     .menu-mobile-text {
@@ -505,13 +563,17 @@ body {
     }
 
     .wrapper {
-        margin: 0 10px;
-        width: calc(100% - 20px);
+        margin: 0 15px;
+        width: calc(100% - 30px);
         padding: 15px 0;
     }
 
     .left-sidebar {
         display: none;
+    }
+
+    .left-sidebar.active {
+        display: block;
     }
 
     .main {
@@ -535,7 +597,6 @@ body {
     }
 
     .menu-nav {
-        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -567,9 +628,6 @@ body {
     .footer-3 {
         width: calc(100% - 490px);
     }
-}
-
-@media only screen and (max-width: 850px) {
 
     .aks-manager-btn-m {
         margin-right: 50px;
@@ -580,6 +638,11 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+
+    .hotel-el {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 
     .room-offer {
         flex-wrap: wrap;
@@ -620,6 +683,11 @@ body {
     .hotel-room-fullprice {
         width: calc(100% - 175px);
         text-align: center;
+        line-height: 16px;
+    }
+
+    .hotel-room-dates {
+        padding-bottom: 15px;
     }
 
     .hotel-room-price {
