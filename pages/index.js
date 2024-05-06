@@ -52,14 +52,15 @@ export default function Index (props) {
         if (!router.isReady) return
         if (!query.hash) return
 
-        console.log(JSON.stringify('hash=' + query.hash))
+        //console.log(JSON.stringify('hash=' + query.hash))
 
-            fetch('https://crmvi.ru/knight/api/selection/get?hash=dky1', {
+            fetch('https://crmvi.ru/knight/api/selection/get', {
                 method: 'POST',
-                //body: JSON.stringify({'hash': query.hash}),
-                //headers: {
-                //  'Content-type': 'application/json; charset=UTF-8',
-                //},
+                //mode: 'no-cors',
+                body: JSON.stringify({'hash': query.hash}),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
             })
             .then(response => response.json())
             .then(data => {
