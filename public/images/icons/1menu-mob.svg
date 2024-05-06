@@ -1,0 +1,16 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+ <title/>
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path fill="#0035a9" id="svg_1" d="m29,6l-26,0a1,1 0 0 0 0,2l26,0a1,1 0 0 0 0,-2z"/>
+  <text stroke="null" transform="matrix(1.3350447783268746,0,0,1.3310494422912595,-5.294925921029762,-9.337045063141886) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="5" id="svg_12" y="29.448238" x="5.851042" stroke-opacity="null" stroke-width="0" fill="#0035a9">М Е Н Ю</text>
+  <path stroke="null" fill="#0035a9" id="svg_2" d="m11.233043,15.297916l17.384442,0a1.337265,1 0 0 0 0,-2l-17.384442,0a1.337265,1 0 0 0 0,2z"/>
+  <path d="m44.769947,-0.669193c0,0.04728 -0.047279,0.04728 -0.094559,0.04728l0,0.04728l-0.047283,0" id="svg_4" stroke-width="1.5" stroke="#000" fill="none"/>
+  <path fill="#0035a9" id="svg_8" d="m28.90544,20.562274l-26,0a1,1 0 0 0 0,2l26,0a1,1 0 0 0 0,-2z"/>
+ </g>
+</svg>

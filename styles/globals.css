@@ -91,6 +91,11 @@ body {
     overflow: hidden;
 }
 
+.hotel-info-pic.active {
+    width: 325px;
+    height: 220px;
+}
+
 .swiper-button-prev {
     width: 25px;
     height: 25px;
@@ -176,6 +181,10 @@ body {
 
 .hotel-info-content {
     width: calc(100% - 285px);
+}
+
+.hotel-info-pic.active + .hotel-info-content {
+    width: calc(100% - 345px);
 }
 
 .hotel-room-item {
@@ -383,6 +392,7 @@ body {
     font-size: 18px;
     line-height: 18px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .aks-manager-btn-m {
@@ -405,9 +415,15 @@ body {
 }
 
 .hotel-content-text {
+    height: 80px;
     font-size: 16px;
     line-height: 20px;
     color: rgb(46,46,46);
+    overflow: hidden;
+}
+
+.hotel-content-text.active {
+    height: auto;
 }
 
 .hotel-content-link {
@@ -415,6 +431,8 @@ body {
     padding-top: 10px;
     color: rgb(0,53,169);
     text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
 }
 
 .between-blocks {
@@ -514,6 +532,14 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+.pay-pics {
+    display: block;
+    max-width: 80%;
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 1250px) {
@@ -639,6 +665,10 @@ body {
 
 @media only screen and (max-width: 700px) {
 
+    .hotel-arrow-increase {
+        display: none;
+    }
+
     .hotel-el {
         padding-left: 10px;
         padding-right: 10px;
@@ -726,6 +756,13 @@ body {
         width: 100%;
         height: 220px;
         margin-bottom: 20px;
+    }
+    .hotel-info-pic.active {
+        width: 100%;
+        height: 260px;
+    }
+    .hotel-info-pic.active + .hotel-info-content {
+        width: 100%;
     }
     .hotel-info-content {
         width: 100%;
