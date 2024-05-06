@@ -1,5 +1,5 @@
 
-const RoomItem = () => {
+const RoomItem = ({selected, changeSelected}) => {
 
 	    return (
 			<div className="hotel-room-item hotel-el">
@@ -13,7 +13,7 @@ const RoomItem = () => {
 					<div className="hotel-room-fullprice"><del>138 500 ₽</del></div>
 					<div className="hotel-room-price">105 000 ₽</div>
 					<div className="hotel-room-nights">за 8 ночей</div>
-					<div className="hotel-room-bronbtn">Зафиксировать цену</div>
+					<div className="hotel-room-bronbtn" onClick = {() => changeSelected(selected => !selected)}>Зафиксировать цену</div>
 				</div>
 			</div>
 	    )

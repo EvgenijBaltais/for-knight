@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import RoomItem from "./RoomItem"
+import RoomSelected from "./RoomSelected"
 import 'swiper/css'
 
 const pics = ['https://cdn.worldota.net/t/x500/extranet/52/59/5259e6b26c2aeee701013dce2771286ab598e8be.jpeg',
@@ -18,12 +19,14 @@ const HotelItem = (props) => {
 
     const [view, changeView] = useState(0)
     const [size, changeSize] = useState(0)
+    const [selected, changeSelected] = useState(0)
+
+    const rooms = [1,2,3,4]
 
 	    return (
             <div className = "hotel-item">
                 <div className="hotel-info hotel-el">
                     <div className={`hotel-info-pic${view ? ` active` : ""}`}>
-
                         {pics ? 
                             <Swiper
                                 onSlideChange = {slider => addBackgroundImage(slider)}
@@ -62,12 +65,15 @@ const HotelItem = (props) => {
                     </div>
                 </div>
 
-                <RoomItem />
+                {!selected ?            
+                    rooms.map((item, index) => (
+                        <RoomItem key={index} selected = {selected} changeSelected = {changeSelected} />
+                    )) : ''
+                }
 
-                <RoomItem />
-                <RoomItem />
-                <RoomItem />
-
+                {selected ?            
+                    <RoomSelected /> : ""
+                }
 
             </div>
 	    )

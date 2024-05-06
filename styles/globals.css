@@ -305,6 +305,7 @@ body {
     transition: .2s background-color, .2s box-shadow;
     border-radius: 3px;
     box-sizing: border-box;
+    user-select: none;
 }
 
 .hotel-room-bronbtn:hover {
@@ -479,6 +480,10 @@ body {
     box-shadow: 0 2px 5px 0 rgba(0,53,169,.25);
     -webkit-box-shadow: 0 2px 5px 0 rgba(0,53,169,.25);
     -moz-box-shadow: 0 2px 5px 0 rgba(0,53,169,.25);
+}
+
+.hotel-el-selected {
+    padding: 70px 10px;
 }
 
 .grey-text {
