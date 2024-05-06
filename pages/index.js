@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 //import { Swiper, SwiperSlide } from "swiper/react"
 //import { Pagination, Navigation } from "swiper"
@@ -11,6 +12,8 @@ import MenuMobile from "../components/MenuMobile"
 
 export default function Index (props) {
 
+    const router = useRouter()
+    const { query } = useRouter()
     const [visibleMenu, setVisibleMenu] = useState(0)
 /*    const [isDesktop, setIsDesktop] = useState(0)
 
@@ -43,6 +46,33 @@ export default function Index (props) {
             window.removeEventListener('click', menuStatus)
         }
     }, [visibleMenu])
+
+    useEffect(() => {
+
+        if (!router.isReady) return
+        if (!query.hash) return
+
+        console.log(JSON.stringify('hash=' + query.hash))
+
+            fetch('https://crmvi.ru/knight/api/selection/get?hash=dky1', {
+                method: 'POST',
+                //body: JSON.stringify({'hash': query.hash}),
+                //headers: {
+                //  'Content-type': 'application/json; charset=UTF-8',
+                //},
+            })
+            .then(response => response.json())
+            .then(data => {
+
+                console.log(data)
+
+                //if (result.data.length > 0) {
+
+
+                    //return false
+                //}
+            })
+    }, [query])
 
 
     function body_lock() {
@@ -81,11 +111,11 @@ export default function Index (props) {
                     
                     <main className = "main">
 
-                        <HotelItem popularHotels = {props.popularHotels.data} />
+                        <HotelItem />
 
                         <div className = "between-blocks"></div>
                         
-                        <HotelItem popularHotels = {props.popularHotels.data} />
+                        <HotelItem />
                     </main>
 
                     <Footer />
@@ -93,31 +123,3 @@ export default function Index (props) {
             </>
         )
     }
-
-export async function getStaticProps(context) {
-
-    // Популярные отели
-
-    const getHotels = await fetch('https://maot-api.bokn.ru/api/hotels/top')
-    const popularHotels = await getHotels.json()
-
-    // Популярные направления
-
-    const getWays = await fetch('https://maot-api.bokn.ru/api/regions/top')
-    const popularWays = await getWays.json()
-    
-    // Отзывы
-
-    //const getReviews = await fetch('https://maot-api.bokn.ru/api/load?id=6713')
-    //let reviews = await getReviews.json()
-    //    reviews = reviews.data.reviews
-
-    return {
-        props: {
-            popularHotels,
-            popularWays,
-            //reviews
-        },
-    }
-}
-    
