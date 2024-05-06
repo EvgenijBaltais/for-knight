@@ -1,4 +1,3 @@
-
 const RoomItem = ({selected, changeSelected}) => {
 
 	    return (

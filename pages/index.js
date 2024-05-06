@@ -15,19 +15,7 @@ export default function Index (props) {
     const router = useRouter()
     const { query } = useRouter()
     const [visibleMenu, setVisibleMenu] = useState(0)
-/*    const [isDesktop, setIsDesktop] = useState(0)
-
-    useEffect(() => {
-        setIsDesktop(window.screen.width > 1250)
-
-        window.addEventListener('resize', () => {
-            setIsDesktop(window.screen.width > 1250)
-        })
-        console.log(isDesktop)
-    }, [])
-*/
-
-    console.log(props)
+    const hotels = [1,2,3]
 
     useEffect(() => {
         // Закрыть меню при нажатии на белый фон на телефоне
@@ -54,12 +42,12 @@ export default function Index (props) {
 
         //console.log(JSON.stringify('hash=' + query.hash))
 
-            fetch('https://crmvi.ru/knight/api/selection/get', {
+            /*fetch('https://crmvi.ru/knight/api/selection/get', {
                 method: 'POST',
                 //mode: 'no-cors',
                 body: JSON.stringify({'hash': query.hash}),
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/x-www-form-urlencoded'c
                 },
             })
             .then(response => response.json())
@@ -72,7 +60,7 @@ export default function Index (props) {
 
                     //return false
                 //}
-            })
+            })*/
     }, [query])
 
 
@@ -112,13 +100,16 @@ export default function Index (props) {
                     
                     <main className = "main">
 
-                        <HotelItem />
-
-                        <div className = "between-blocks"></div>
-                        
-                        <HotelItem />
+                    {hotels.map((item, index) => {
+                        return (
+                            <>
+                                <HotelItem key = {index} />
+                                {index == hotels.length - 1 ? '' : <div className = "between-blocks"></div>}
+                            </>
+                        )
+                    })}
+                    
                     </main>
-
                     <Footer />
                 </div>
             </>

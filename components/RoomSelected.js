@@ -1,7 +1,5 @@
 
-
 const RoomSelected = (props) => {
-
 	    return (
             <div className = "hotel-item">
                 <div className="hotel-el hotel-el-selected">
