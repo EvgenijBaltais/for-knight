@@ -13,6 +13,11 @@ export default function Index (props) {
     const { query } = useRouter()
     const [visibleMenu, setVisibleMenu] = useState(0)
     const [hotels, getHotels] = useState(0)
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
 
     useEffect(() => {
         // Закрыть меню при нажатии на белый фон на телефоне
@@ -35,21 +40,14 @@ export default function Index (props) {
     useEffect(() => {
 
         if (!router.isReady) return
-        //if (!query.hash) return
+        if (!query.hash) return
 
-            fetch('https://bron.gostinitsa-nikonovka-msk.ru?hash=dky2')
+            fetch('https://bron.gostinitsa-nikonovka-msk.ru?hash=' + query.hash)
             .then(response => response.json())
             .then(data => {
 
-                console.log(data)
-
                 getHotels(data)
 
-                //if (result.data.length > 0) {
-
-
-                    //return false
-                //}
             })
     }, [query])
 
@@ -77,38 +75,62 @@ export default function Index (props) {
         }
     }
 
-        return (
-            <>
-                <Head>
-                    <title>Бронирование</title>
-                    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-                </Head>
-
-                {hotels ? 
-                    <div className = "wrapper">
-                        {console.log(hotels)}
-
-                        <LeftSidebar visibleMenu = {visibleMenu} manager_fio = {hotels[0].manager_fio} manager_phone = {hotels[0].manager_phone} manager_email = {hotels[0].manager_email} />
-                        <MenuMobile visibleMenu = {visibleMenu} setVisibleMenu = {setVisibleMenu} manager_fio = {hotels[0].manager_fio} manager_phone = {hotels[0].manager_phone} manager_email = {hotels[0].manager_email} />
-                        
-                        <main className = "main">
-
-                        {hotels.map((item, index) => {
-                            return (
-                                <div key = {index}>
-                                    <HotelItem data = {item} />
-                                    {index == hotels.length - 1 ? '' : <div className = "between-blocks"></div>}
-                                </div>
-                            )
-                        })}
-                        
-                        </main>
-                        <Footer />
-                    </div>
-                : <>
-                    <img src = "/images/148.gif" className = "no-result-image" />
-                </>
-                }
-            </>
-        )
+    if (!router.isReady) {
+        return <></>
     }
+
+    return !query.hash ? (
+        <>
+            {isClient ? <div className="not-enough-data">
+                <span>{'Недостаточно данных'}</span>
+            </div> : ''
+            }
+        </>
+    )
+    :
+    (
+        <>
+            <Head>
+                <title>Бронирование</title>
+                <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+            </Head>
+
+            {!hotels ?
+                <>
+                    <img src = "/images/148.gif" className = "no-result-image" />
+                </> : ''
+            }
+
+            {hotels && hotels.length ? 
+                <div className = "wrapper">
+
+                    <LeftSidebar visibleMenu = {visibleMenu} manager_fio = {hotels[0].manager_fio} manager_phone = {hotels[0].manager_phone} manager_email = {hotels[0].manager_email} />
+                    <MenuMobile visibleMenu = {visibleMenu} setVisibleMenu = {setVisibleMenu} manager_fio = {hotels[0].manager_fio} manager_phone = {hotels[0].manager_phone} manager_email = {hotels[0].manager_email} />
+                    
+                    <main className = "main">
+
+                    {hotels.map((item, index) => {
+                        return (
+                            <div key = {index}>
+                                <HotelItem data = {item} />
+                                {index == hotels.length - 1 ? '' : <div className = "between-blocks"></div>}
+                            </div>
+                        )
+                    })}
+                    
+                    </main>
+                    <Footer />
+                </div>
+                : ''
+            }
+
+            {hotels && !hotels.length ? 
+                <>
+                    <div className="not-enough-data">
+                        <span>Нет данных</span>
+                    </div>
+                </> : ''
+            }
+        </>
+    )
+}

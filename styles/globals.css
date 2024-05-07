@@ -68,7 +68,7 @@ body {
 
 .main {
     width: calc(100% - 305px);
-    min-height: 700px;
+    min-height: 600px;
 }
 
 .footer {
@@ -89,6 +89,11 @@ body {
     background-color: rgb(225,225,225);
     border-radius: 4px;
     overflow: hidden;
+}
+
+.not-enough-data {
+    text-align: center;
+    padding: 90px 10px 0 10px;
 }
 
 .hotel-info-pic.active {
