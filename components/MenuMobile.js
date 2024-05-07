@@ -7,7 +7,7 @@ const MenuMobile = (props) => {
 	    return (
             <div className = "menu-mobile">
                 <a href = "/">
-                    <Image className="main-logo-small" src={Smalllogo} alt="Компания Магазин отдыха" />
+                    <Image className="main-logo-small" src={Smalllogo} alt="Компания Магазин отдыха" priority={false} />
                 </a>
                 <div className="menu-mobile-text">
                     <p className = "mobile-manager-name-info">Ваш персональный менеджер:</p>

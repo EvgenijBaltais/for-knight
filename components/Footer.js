@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
             <div className="footer-3">
                 <p className="footer-text bold-text">Способы оплаты</p>
-                <Image src={Payments} alt="Платежные методы" className="pay-pics" />
+                <Image src={Payments} alt="Платежные методы" className="pay-pics" priority={false} />
             </div>
         </footer>
     )

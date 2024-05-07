@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-//import { Swiper, SwiperSlide } from "swiper/react"
-//import { Pagination, Navigation } from "swiper"
-//import "swiper/css"
 
 import Footer from "../components/Footer"
 import HotelItem from "../components/HotelItem"
@@ -15,7 +12,7 @@ export default function Index (props) {
     const router = useRouter()
     const { query } = useRouter()
     const [visibleMenu, setVisibleMenu] = useState(0)
-    const hotels = [1,2,3]
+    const [hotels, getHotels] = useState(0)
 
     useEffect(() => {
         // Закрыть меню при нажатии на белый фон на телефоне
@@ -38,29 +35,22 @@ export default function Index (props) {
     useEffect(() => {
 
         if (!router.isReady) return
-        if (!query.hash) return
+        //if (!query.hash) return
 
-        //console.log(JSON.stringify('hash=' + query.hash))
-
-            /*fetch('https://crmvi.ru/knight/api/selection/get', {
-                method: 'POST',
-                //mode: 'no-cors',
-                body: JSON.stringify({'hash': query.hash}),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'c
-                },
-            })
+            fetch('https://bron.gostinitsa-nikonovka-msk.ru?hash=dky2')
             .then(response => response.json())
             .then(data => {
 
                 console.log(data)
+
+                getHotels(data)
 
                 //if (result.data.length > 0) {
 
 
                     //return false
                 //}
-            })*/
+            })
     }, [query])
 
 
@@ -93,25 +83,32 @@ export default function Index (props) {
                     <title>Бронирование</title>
                     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
                 </Head>
-                <div className = "wrapper">
 
-                    <LeftSidebar visibleMenu = {visibleMenu} />
-                    <MenuMobile visibleMenu = {visibleMenu} setVisibleMenu = {setVisibleMenu} />
-                    
-                    <main className = "main">
+                {hotels ? 
+                    <div className = "wrapper">
+                        {console.log(hotels)}
 
-                    {hotels.map((item, index) => {
-                        return (
-                            <>
-                                <HotelItem key = {index} />
-                                {index == hotels.length - 1 ? '' : <div className = "between-blocks"></div>}
-                            </>
-                        )
-                    })}
-                    
-                    </main>
-                    <Footer />
-                </div>
+                        <LeftSidebar visibleMenu = {visibleMenu} manager_fio = {hotels[0].manager_fio} manager_phone = {hotels[0].manager_phone} manager_email = {hotels[0].manager_email} />
+                        <MenuMobile visibleMenu = {visibleMenu} setVisibleMenu = {setVisibleMenu} manager_fio = {hotels[0].manager_fio} manager_phone = {hotels[0].manager_phone} manager_email = {hotels[0].manager_email} />
+                        
+                        <main className = "main">
+
+                        {hotels.map((item, index) => {
+                            return (
+                                <div key = {index}>
+                                    <HotelItem data = {item} />
+                                    {index == hotels.length - 1 ? '' : <div className = "between-blocks"></div>}
+                                </div>
+                            )
+                        })}
+                        
+                        </main>
+                        <Footer />
+                    </div>
+                : <>
+                    <img src = "/images/148.gif" className = "no-result-image" />
+                </>
+                }
             </>
         )
     }
