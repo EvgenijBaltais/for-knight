@@ -2,12 +2,20 @@ import { useState } from 'react'
 
 const RoomItem = ({data}) => {
 
-    const months = ['янв', 'фев', 'март', 'апр', 'мая', 'июн', 'июл', 'авг', 'сент', 'окт', 'нояб', 'дек']
-
 	const [selected, changeSelected] = useState(0)
 
     function returnDate (date) {
+		let months = ['янв', 'фев', 'март', 'апр', 'мая', 'июн', 'июл', 'авг', 'сент', 'окт', 'нояб', 'дек']
         return date.slice(-2) + ' ' + (months[(parseInt(date.slice(5, 7))) - 1])
+    }
+
+    function returnDayName (date) {
+
+		let days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+			d = new Date(date),
+			n = d.getDay()
+
+        return days[n]
     }
 
 	function returnNights (start_date, end_date) {
@@ -30,7 +38,7 @@ const RoomItem = ({data}) => {
 			<div className="hotel-room-item hotel-el">
 				<div className="hotel-room-item-left">
 				{data.checkin_date && data.checkout_date ?
-					<p className="hotel-room-dates">{returnDate(data.checkin_date)} - {returnDate(data.checkout_date)}</p>
+					<p className="hotel-room-dates">{returnDate(data.checkin_date) + ` (${returnDayName(data.checkin_date)})`} - {returnDate(data.checkout_date) + ` (${returnDayName(data.checkout_date)})`}</p>
 					: ''
 				}
 
@@ -59,7 +67,7 @@ const RoomItem = ({data}) => {
                 <div className="hotel-el hotel-el-selected">
                     <p className="room-selected-choose">Вы выбрали</p>
                     {data.checkin_date && data.checkout_date ?
-                        <p className="room-selected-dates">{returnDate(data.checkin_date)} - {returnDate(data.checkout_date)}</p>
+                        <p className="room-selected-dates">{returnDate(data.checkin_date) + ` (${returnDayName(data.checkin_date)})`} - {returnDate(data.checkout_date) + ` (${returnDayName(data.checkout_date)})`}</p>
                         : ''
                     }
                     <p className="room-selected-title">{data.room_category || ''}</p>
