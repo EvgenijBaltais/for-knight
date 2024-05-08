@@ -193,6 +193,7 @@ body {
 }
 
 .hotel-room-item {
+    width: 100%;
     display: flex;
     margin-bottom: 20px;
 }
@@ -488,6 +489,7 @@ body {
 }
 
 .hotel-el-selected {
+    width: 100%;
     padding: 70px 10px;
 }
 

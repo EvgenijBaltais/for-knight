@@ -55,8 +55,7 @@ const RoomItem = ({data}) => {
 	    )
 		:
 		(
-            <div className = "hotel-item">
-                {console.log(data)}
+            <div className = "hotel-room-item">
                 <div className="hotel-el hotel-el-selected">
                     <p className="room-selected-choose">Вы выбрали</p>
                     {data.checkin_date && data.checkout_date ?
@@ -71,9 +70,7 @@ const RoomItem = ({data}) => {
                         <p className="room-selected-nights">за {nightsRightText(returnNights(data.checkin_date, data.checkout_date))}</p>
                         : ''
                     }
-                    {parseInt(data.total_price) ?
-                        <p className="room-selected-price">{parseInt(data.total_price).toLocaleString()} ₽</p> : ''
-                    }
+                    <p className="room-selected-price">{data.total_price ? parseInt(data.total_price).toLocaleString() + ' ₽' : ''}</p>
                     <p className="room-selected-call">Менеджер свяжется с Вами в ближайшее время</p>
                 </div>
             </div>
