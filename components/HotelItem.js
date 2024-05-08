@@ -2,14 +2,12 @@ import { useState } from 'react'
 import { Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import RoomItem from "./RoomItem"
-import RoomSelected from "./RoomSelected"
 import 'swiper/css'
 
 const HotelItem = (props) => {
 
     const [view, changeView] = useState(0)
     const [size, changeSize] = useState(0)
-    const [selected, changeSelected] = useState(0)
 
 	    return (
             <div className = "hotel-item">
@@ -49,15 +47,10 @@ const HotelItem = (props) => {
                         <a className="hotel-content-link" onClick = {() => changeSize(size => !size)}>{size ? "Скрыть описание" : "Полное описание"}</a>
                     </div>
                 </div>
-
-                {!selected ?            
+                {
                     props.data.rooms.map((item, index) => (
-                        <RoomItem key={index} data = {item} selected = {selected} changeSelected = {changeSelected} />
-                    )) : ''
-                }
-
-                {selected ?            
-                    <RoomSelected /> : ""
+                        <RoomItem key={index} data = {item} />
+                    ))
                 }
 
             </div>

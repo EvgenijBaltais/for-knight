@@ -91,7 +91,7 @@ export default function Index (props) {
     (
         <>
             <Head>
-                <title>Бронирование</title>
+                <title>Подбор отеля</title>
                 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
             </Head>
 

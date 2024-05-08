@@ -1,6 +1,10 @@
-const RoomItem = ({selected, changeSelected, data}) => {
+import { useState } from 'react'
+
+const RoomItem = ({data}) => {
 
     const months = ['янв', 'фев', 'март', 'апр', 'мая', 'июн', 'июл', 'авг', 'сент', 'окт', 'нояб', 'дек']
+
+	const [selected, changeSelected] = useState(0)
 
     function returnDate (date) {
         return date.slice(-2) + ' ' + (months[(parseInt(date.slice(5, 7))) - 1])
@@ -22,7 +26,7 @@ const RoomItem = ({selected, changeSelected, data}) => {
         return text
     }
 
-	    return (
+	    return !selected ? (
 			<div className="hotel-room-item hotel-el">
 				<div className="hotel-room-item-left">
 				{data.checkin_date && data.checkout_date ?
@@ -48,6 +52,31 @@ const RoomItem = ({selected, changeSelected, data}) => {
 					<div className="hotel-room-bronbtn" onClick = {() => changeSelected(selected => !selected)}>Зафиксировать цену</div>
 				</div>
 			</div>
+	    )
+		:
+		(
+            <div className = "hotel-item">
+                {console.log(data)}
+                <div className="hotel-el hotel-el-selected">
+                    <p className="room-selected-choose">Вы выбрали</p>
+                    {data.checkin_date && data.checkout_date ?
+                        <p className="room-selected-dates">{returnDate(data.checkin_date)} - {returnDate(data.checkout_date)}</p>
+                        : ''
+                    }
+                    <p className="room-selected-title">{data.room_category || ''}</p>
+                    <p className="room-selected-text">{data.food_type_name || ''}. {data.room_description || ''}</p>
+                    <p className="room-selected-flight">Без перелета</p>
+                    <div className="room-selected-hr"></div>
+                    {data.checkin_date && data.checkout_date ?
+                        <p className="room-selected-nights">за {nightsRightText(returnNights(data.checkin_date, data.checkout_date))}</p>
+                        : ''
+                    }
+                    {parseInt(data.total_price) ?
+                        <p className="room-selected-price">{parseInt(data.total_price).toLocaleString()} ₽</p> : ''
+                    }
+                    <p className="room-selected-call">Менеджер свяжется с Вами в ближайшее время</p>
+                </div>
+            </div>
 	    )
 }
 
